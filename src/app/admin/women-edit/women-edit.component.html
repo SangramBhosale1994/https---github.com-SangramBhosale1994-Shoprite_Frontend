@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="formdata" (ngSubmit)="submit(formdata.value)" class="form-label">
+        <input type="hidden" name="id" formControlName="id" />
+        <input type="hidden" name="photo" formControlName="photo" />
+    
+    
+        <label class="form">Photo</label><br>
+        <input type="file" class="form-control" accept="image/*" name="photo" formControlName="photo" (change)="handleimage($event)">
+        <br>
+        <label class="form">Name</label><br>
+        <input type="text" class="form-control" name="name" formControlName="name">
+        <br>
+        <label class="form">Brand</label><br>
+        <input type="text" class="form-control"name="brand" formControlName="brand">
+        <br>
+        <label class="form">Description</label><br>
+        <input type="text" class="form-control" name="description" formControlName="description">
+        <br>
+        <label class="form">Price</label><br>
+        <input type="text" class="form-control" name="price" formControlName="price">
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="!formdata.valid">Submit</button>
+    </form>
+    </div>

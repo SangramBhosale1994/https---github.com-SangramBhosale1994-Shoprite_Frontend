@@ -1,0 +1,147 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light row" [hidden]="isadmin">
+    <div class="container-fluid">
+        <div class="col-lg-2">
+            <a class="navbar-brand" href="Index.html" style="margin-left:20px;">Shoprite_Official</a>
+        </div>
+        <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="col-lg-1"></div> -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex col-lg-5">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    style="margin-left: 100px;">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="col-lg-2"></div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="about">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="men">Men</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" routerLink="women">Women</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown" *ngIf="isadmin">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="admin/men">Men</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" routerLink="admin/women">Women</a></li>
+
+
+                    </ul>
+                <li class="nav-item" [hidden]="isadmin">
+                    <a class="nav-link" routerLink="login">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="isadmin">
+                    <a class="nav-link" (click)="logout()">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!----Admin Panel---->
+
+<div *ngIf="isadmin">
+    <h3 class="text-center">Admin Panel</h3>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light row">
+        <div class="container-fluid">
+            <div class="col-lg-2">
+                <a class="navbar-brand" routerLink="admin/home" style="margin-left:20px;">Shoprite_Official</a>
+            </div>
+            <button class="navbar-toggler float-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="col-lg-1"></div> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex col-lg-5">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        style="margin-left: 100px;">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="col-lg-2"></div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="admin/home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="admin/about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" routerLink="admin/men">Men</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" routerLink="admin/women">Women</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="admin/contact">Contact</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown" *ngIf="isadmin">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" routerLink="admin/men">Men</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" routerLink="admin/women">Women</a></li>
+
+
+                        </ul> -->
+                    <!-- <li class="nav-item" [hidden]="isadmin">
+                        <a class="nav-link" routerLink="login">Login</a>
+                    </li> -->
+                    <li class="nav-item" *ngIf="isadmin">
+                        <a class="nav-link" (click)="logout()">Logout</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</div>

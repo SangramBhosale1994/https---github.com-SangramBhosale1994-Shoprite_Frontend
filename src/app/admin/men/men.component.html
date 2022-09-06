@@ -1,0 +1,50 @@
+<div class="text-center">
+<button class="btn btn-primary mt-3" routerLink="../mens-edit">Add New Items</button>
+</div>
+<div class="container mb-2" >
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let mens of men |paginate: { itemsPerPage:6, currentPage:page, totalItems:totalLength}; let i= index ">
+            <div class="card mt-3">
+                <img class="card-img-top" src="{{baseurl + mens.imagepath}}" alt="Card image" style="height: 450px;">
+                <div class="card-body">
+                    <!-- <input type="hidden">{{mens.srno}} -->
+                    <h4 class="card-title">{{mens.name}}</h4>
+                    <p class="card-text">{{mens.brand}}</p><br>
+                    <p class="card-text">{{mens.description}}</p><br>
+                    <p class="card-text">Price :- {{mens.price}}</p><br>
+                    <a href="#" class="btn btn-primary" style="margin-right: 70px;" routerLink="../mens-edit/{{mens._id}}">Edit</a>
+                    <a href="#" class="btn btn-primary" style="margin-left: 120px;" (click)="delete(mens._id)">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-4">
+            <div class="card">
+                <img class="card-img-top" src="assets/men2.webp" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">Roadster</h4>
+                    <p class="card-text">Men Black Twill Casual Shirt</p><br>
+                    <p class="card-text">Price :- </p><br>
+                    <a href="#" class="btn btn-primary" style="margin-right: 70px;">Edit</a>
+                    <a href="#" class="btn btn-primary" style="margin-left: 120px;">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <img class="card-img-top" src="assets/men3.webp" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">WROGN</h4>
+                    <p class="card-text">Men Black & Grey Slim Fit Checked Casual Shirt</p>
+                    <p class="card-text">Price :- </p><br>
+                    <a href="#" class="btn btn-primary" style="margin-right: 70px;">Edit</a>
+                    <a href="#" class="btn btn-primary" style="margin-left: 120px;">Delete</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
+</div>
+<pagination-controls class="text-center mt-3"(pageChange)="page = $event"></pagination-controls>
+
